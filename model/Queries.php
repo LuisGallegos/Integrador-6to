@@ -1,0 +1,5 @@
+<?php
+  $SELECT_ALL_USERS=""
+  
+  //TODOS LOS QUERTIES
+ ?>
