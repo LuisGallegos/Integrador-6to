@@ -226,17 +226,17 @@
                     <ul class="nav" id="side-menu">
 
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Alta</a>
+                            <a ui-sref="Alta"><i class="fa fa-dashboard fa-fw"></i> Alta</a>
                         </li>
 
                         <li>
-                            <a href="tables.html"><i class="fa fa-times fa-fw"></i> Baja</a>
+                            <a ui-sref="Baja"><i class="fa fa-times fa-fw"></i> Baja</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cambio</a>
+                            <a ui-sref="Cambio"><i class="fa fa-edit fa-fw"></i> Cambio</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-table fa-fw"></i> Consulta</a>
+                            <a ui-sref="Consulta"><i class="fa fa-table fa-fw"></i> Consulta</a>
                         </li>
 
                 </div>

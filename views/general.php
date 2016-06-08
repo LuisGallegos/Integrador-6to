@@ -3,7 +3,7 @@
 
 <body>
   <div id="page-wrapper">
-      
+    <div ui-view></div>
   </div>
 </body>
 
