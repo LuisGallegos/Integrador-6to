@@ -1,7 +1,7 @@
 {
 	"name" : "adodb/adodb-php",
 	"description" : "ADOdb is a PHP database abstraction layer library",
-	"license" : [ "BSD-3-Clause", "LGPL-2.1" ],
+	"license" : [ "LGPL-2.1", " BSD-2-Clause" ],
 	"authors" : [
 		{
 			"name": "John Lim",
@@ -11,14 +11,10 @@
 		{
 			"name": "Damien Regad",
 			"role": "Current maintainer"
-		},
-		{
-			"name": "Mark Newnham",
-			"role": "Developer"
 		}
 	],
 
-	"keywords" : [ "database", "abstraction", "layer", "library", "php" ],
+	"keywords" : [ "database" ],
 
 	"homepage": "http://adodb.sourceforge.net/",
 	"support" : {
