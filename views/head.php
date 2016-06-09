@@ -1,13 +1,16 @@
-<html ng-app="routerApp">
+<html>
 <head>
-  <title> HR Solutions </title>
-  <script src="../lib/Angular/angular.min.js"> </script>
-  <link rel="stylesheet" href="../lib/Bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../lib/Bootstrap/ourstyle.css">
-  <link href="../lib/Font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="../lib/MetisMenu/dist/metisMenu.min.css" rel="stylesheet">
-  <script src="../lib/JQuery/jquery-1.12.4.js"> </script>
-  <script src="../lib/sb-admin-2.js"></script>
-  <script src="../lib/MetisMenu/dist/metisMenu.min.js"></script>
-
+    <meta charset="utf-8">
+    <title>SRH</title>
+    <script src="../components/jquery/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../components/sweetalert-master/sweetalert-master/dist/sweetalert.css">
+    <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-ui-router.min.js"></script>
+    <script src="../js/angular-animate.min.js"></script>
+    <link href="../components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/timeline.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>

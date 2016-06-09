@@ -1,14 +1,27 @@
-<?php require("head.php"); ?>
-<body>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?php include('../views/head.php');?>
+
+<?php
+    session_id("active");
+    session_start();
+    if (!isset($_SESSION["username"])) {
+    //If the session is active we send user to the Home page
+    } else {
+        header("Location: ../views/general.php");
+    }
+?>
+
+<body  ng-controller="loginController as Contrl" >
   <div class="container">
       <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
           <div class="row">
               <div class="iconmelon">
-                <svg viewBox="0 0 32 32">
-                  <g filter="">
-                    <use xlink:href="#git"></use>
-                  </g>
-                </svg>
+                  <img class="LogoLogin" src="..//img/LogoHRS.png">
               </div>
           </div>
           <div class="panel panel-default" >
@@ -16,23 +29,23 @@
                   <div class="panel-title text-center">Insert your own credentials</div>
               </div>
               <div class="panel-body">
-                  <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                  <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" ng-submit="Contrl.postForm()" >
 
                       <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input id="user" type="text" class="form-control" name="user" value="" placeholder="User">
+                          <input class="form-control" id="inputUsername" type="text" placeholder="UserName" required ng-model="Contrl.inputData.username"/>
                       </div>
 
                       <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                          <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                          <input class="form-control" id="inputPassword" type="password" placeholder="*********" required ng-model="Contrl.inputData.password"/>
                       </div>
 
                       <div class="form-group">
                           <!-- Button -->
                           <div class="col-sm-12 controls">
-                              <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>
-                              <button href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Sing In</button>
+                            <button class="btn btn-primary" type="submit"> <i class="fa fa-rebel fa-fw"></i>     Log In</button>
+                            <button class="btn btn-success" type="button" ng-click="Contrl.signIn()"><i class="fa fa-empire fa-fw"></i>Sign Up</button>
                           </div>
                       </div>
                   </form>
@@ -287,5 +300,10 @@
 	c-0.049-0.366-0.046-0.739-0.025-1.11c0.009-0.125,0.024-0.25,0.042-0.375C12.122,17.814,12.141,17.732,12.164,17.65z"></path>
   </g>
 </svg>
+
+    <?php include '../views/footer.php';?>
 </body>
-<?php require("footer.php"); ?>
+
+
+
+</html>

@@ -1,9 +1,7 @@
 <?php
 
 /*
-@version   v5.20.4  30-Mar-2016
-@copyright (c) 2000-2013 John Lim (jlim#natsoft.com). All rights reserved.
-@copyright (c) 2014      Damien Regad, Mark Newnham and the ADOdb community
+V5.19  23-Apr-2014  (c) 2000-2014 John Lim (jlim#natsoft.com). All rights reserved.
          Contributed by Ross Smith (adodb@netebb.com).
   Released under both BSD license and Lesser GPL library license.
   Whenever there is any discrepancy between the two licenses,
@@ -75,7 +73,7 @@ class ADODB_Compress_Bzip2 {
 
 	/**
 	 */
-	function __construct($block_size = null, $work_level = null, $min_length = null) {
+	function ADODB_Compress_Bzip2($block_size = null, $work_level = null, $min_length = null) {
 		if (!is_null($block_size)) {
 			$this->setBlockSize($block_size);
 		}
