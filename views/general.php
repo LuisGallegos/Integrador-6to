@@ -13,7 +13,7 @@ and open the template in the editor.
         //DELETES THE COOKIES
           if (isset($_COOKIE[session_name()])) {
                 setcookie(session_name(), '', time() - 42000, '/');
-                //header("Location: ../views/login.php");
+                header("Location: ../views/login.php");
               }
          }else{}
     include ('head.php');

@@ -26,21 +26,21 @@ class CheckData extends UserData{
 
     }else{
       foreach ($dataarray as $row) {
-        if($row["stat"] == 0){//CHECK IF OUR USER IS NOT BLOCK
+        if($row[2] == 0){//CHECK IF OUR USER IS NOT BLOCK
             $text = "wrongS";
             break;
             //IF NOT, CHECK IF THE PASSWORD IS WRONG. IF SO, EXECUTES updateAttempts()
-        }else if($row["decrypted_pass"] != $password){
+        }else if($row[1] != $password){
             $text = "wrong";
             $username = $user;
             $this->updateAttempts($username, $conn, $UPDATE_ATTEMPTS_TIMES);
             //CHECK IF ATTEMPTED LOGIN TIMES IS EQUALS TO 3, IF SO, EXECUTES updateStatus()
-            if($row["times"]+1 === 3){
+            if($row[3]+1 === 3){
               $this->updateStatus($username, $conn, $UPDATE_USERS_STAT);
             }
             break;
             //IF EXISTS AND THE PASSWORD SUBMITTED IS CORRECT, EXECUTES initSession()
-          }else if($row["decrypted_pass"] === $password){
+          }else if($row[1] === $password){
             $username = $user;
             $this->initSession($username);
             $text = "correct";
