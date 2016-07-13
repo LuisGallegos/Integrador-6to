@@ -50,7 +50,7 @@
                                     <em>Yesterday</em>
                                 </span>
                             </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            <div>loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -229,18 +229,22 @@
                     <li>
                         <a ui-sref-active="active" ui-sref="home"><i class="fa fa-dashboard fa-fw"></i> Vacantes</a>
                     </li>
-
                     <li>
-                        <a ui-sref-active="active" ui-sref="Other"><i class="fa fa-times fa-fw"></i> Baja</a>
+                        <a ui-sref-active="active" ui-sref="nomination"><i class="fa fa-table fa-fw"></i> Departamentos</a>
                     </li>
                     <li>
-                        <a ui-sref-active="active" ui-sref="uploads"><i class="fa fa-edit fa-fw"></i> Cambio</a>
+                        <a ui-sref-active="active" ui-sref="empleados"><i class="fa fa-times fa-fw"></i> Empleados</a>
                     </li>
                     <li>
-                        <a ui-sref-active="active" ui-sref="downloads"><i class="fa fa-table fa-fw"></i> Consulta</a>
+                        <a ui-sref-active="active" ui-sref="uploads"><i class="fa fa-edit fa-fw"></i> Percepciones</a>
+                    </li>
+                    <li>
+                        <a ui-sref-active="active" ui-sref="downloads"><i class="fa fa-table fa-fw"></i> Deducciones</a>
                     </li>
 
             </div>
+
+
             <!-- /.sidebar-collapse -->
         </div>
         <!-- /.navbar-static-side -->

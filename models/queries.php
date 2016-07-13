@@ -2,7 +2,7 @@
 
 //-------------------------------------------------------------------------------LOGIN QUERIES-----------------------------------------------------------------------------------------------
 
-$SELECT_VACANTES="SELECT * FROM Vacantes";
+$SELECT_VACANTES="SELECT * FROM Vacantes;";
 
 //:::::SELECT
 $SELECT_USERS_DATA = "SELECT users.username, users.pass, users.stat, attempts.times FROM users INNER JOIN attempts ON users.username = attempts.username WHERE users.username= ?;";

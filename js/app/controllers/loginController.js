@@ -10,6 +10,7 @@
        $scope.url2 = '../presenters/insert-Login.php';
        $scope.encodedString = "";
        $scope.encodedString2 = "";
+
        this.postForm = function () {   //First Function that obtains the Username and Password
        $scope.encodedString = 'username=' + encodeURIComponent(this.inputData.username) +  //String where we save the values that the user writes
                  '&password=' + encodeURIComponent(this.inputData.password);
