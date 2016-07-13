@@ -1,36 +1,78 @@
-<!DOCTYPE html>
+<br>
+<ul class="nav nav-pills">
+  <li class="active"><a data-toggle="pill" href="#home1">Altas</a></li>
+  <li><a data-toggle="pill" href="#menu1">Bajas</a></li>
+  <li><a data-toggle="pill" href="#menu2">Cambios</a></li>
+  <li><a data-toggle="pill" href="#menu3">Consultas</a></li>
+</ul>
+
+<div class="tab-content" >
+  <div id="home1" class="tab-pane fade in active col-md-6">
+    <br>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name">
+      <label for="fechaini">Begin Date:</label>
+      <input type="date" class="form-control" id="fechaini">
+      <label for="fechafin">End Date:</label>
+      <input type="text" class="form-control" id="fechafin">
+      <label for="sal">Salary:</label>
+      <input type="text" class="form-control" id="sal" placeholder="$$$$">
+      <label for="desc">Description:</label>
+      <input type="text" class="form-control" id="desc">
+    </div>
+
+  </div>
 
 
-<div id="catlist">
-		<button id='button1'>cat 1</button>
-		<button id='button2'>cat 2</button>
-		<button id='button3'>cat 3</button>
-		<button id='button4'>cat 4</button>
-		<button id='button5'>cat 5</button>
-	</div>
-	<div class="cat" id="cat1">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="..//img/cat_picture1.jpg">
-   	</div>
-   	<div class="cat" id="cat2">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="..//img/cat_picture2.jpeg">
-   	</div>
-   	<div class="cat" id="cat3">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="..//img/cat_picture3.jpeg">
-   	</div>
-   	<div class="cat" id="cat4">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="..//img/cat_picture4.jpeg">
-   	</div>
-   	<div class="cat" id="cat5">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="..//img/cat_picture5.jpeg">
+    <div id="menu1" class="tab-pane fade">
+		</br>
+    <div class="col-xs-5">
+    <label for="idbaja">Insert the SSO that you what to delete	</br></label>
+    <input type="text" class="form-control" placeholder="Matricula" id="idbaja" autofocus>
+      </div>
+    </div>
+
+
+
+
+  <div id="menu2" class="tab-pane fade">
+		<div id="home1" class="tab-pane fade in active col-md-6">
+			<br>
+			<div class="form-group">
+
+				<label for="idbaja">Ingrese la matricula de la vacante que desea  editar	</br></label>
+				<input type="text" class="form-control" placeholder="Matricula" id="idbaja" autofocus>
+				<label for="name">Name:</label>
+				<input type="text" class="form-control" id="name">
+				<label for="fechaini">Begin Date:</label>
+				<input type="date" class="form-control" id="fechaini">
+				<label for="fechafin">End Date:</label>
+				<input type="text" class="form-control" id="fechafin">
+				<label for="sal">Salary:</label>
+				<input type="text" class="form-control" id="sal" placeholder="$$$$">
+				<label for="desc">Description:</label>
+				<input type="text" class="form-control" id="desc">
+
+			</div>
+    </div>
+  </div>
+
+
+
+
+
+  <div id="menu3" class="tab-pane fade">
+	</br>
+		<div class="col-xs-5">
+		<label for="idbaja">Ingrese la matricula de la vacante que desea consultar	</br></label>
+		<input type="text" class="form-control" placeholder="Matricula" id="idbaja" autofocus>
+			</div>
+  </div>
+
+
+
+
+
+
 </div>
-<script src="../js/catclicker.js"></script>

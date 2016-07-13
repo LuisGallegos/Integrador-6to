@@ -1,14 +1,15 @@
-define(['loginController'],
-function(loginController){
+define(['loginController','vacantController'],
+function(loginController,vacantController){
   var managerModule = angular.module('managerModule',['ui.router']);
 
   managerModule.controller('loginController',loginController);
-
+  managerModule.controller('vacantController',vacantController);
   managerModule.config(function ($stateProvider,$urlRouterProvider){
       $stateProvider
               .state('home', {
                 url: '/home',
-                templateUrl: 'homes.php'
+                templateUrl: 'homes.php',
+                controller: 'vacantController'
                 })
               .state('uploads', {
                 url: '/uploads',
@@ -18,6 +19,14 @@ function(loginController){
                 url: '/downloads',
                 templateUrl: 'downloads.php'
                 })
+              .state('nomination', {
+                  url: '/nomination',
+                  templateUrl: 'nomination.php'
+                })
+                .state('empleados', {
+                    url: '/empleados',
+                    templateUrl: 'empleados.php'
+                  })
 
       $urlRouterProvider.otherwise('/home');
 

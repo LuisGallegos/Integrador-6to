@@ -7,6 +7,7 @@ require.config({
             angular: 'js/angular.min',
             sweetAlert: 'components/sweetalert-master/sweetalert-master/dist/sweetalert.min',
         loginController: 'js/app/controllers/loginController',
+        vacantController: 'js/app/controllers/vacantController',
         jquery: 'components/jquery/jquery.min',
         bootstrap: 'components/bootstrap/dist/js/bootstrap.min',
         metis: 'components/metisMenu/dist/metisMenu.min',

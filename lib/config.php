@@ -5,7 +5,7 @@ $dbuname = "";
 $dbpass = "";
 $dbname = "";*/
 
-$dbhost  = "DESKTOP-US4P8UN";
+$dbhost  = "DESKTOP-VJH4HBQ";
 $dbuname = "root";
 $dbpass  = "123";
 $dbname  = "SRH";
