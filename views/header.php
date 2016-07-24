@@ -236,7 +236,7 @@
                         <a ui-sref-active="active" ui-sref="empleados"><i class="fa fa-times fa-fw"></i> Empleados</a>
                     </li>
                     <li>
-                        <a ui-sref-active="active" ui-sref="uploads"><i class="fa fa-edit fa-fw"></i> Percepciones</a>
+                        <a ui-sref-active="active" ui-sref="Perceptions"><i class="fa fa-edit fa-fw"></i> Perceptions</a>
                     </li>
                     <li>
                         <a ui-sref-active="active" ui-sref="downloads"><i class="fa fa-table fa-fw"></i> Deducciones</a>

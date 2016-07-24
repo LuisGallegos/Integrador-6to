@@ -1,9 +1,9 @@
 <br>
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#home1">Altas</a></li>
-  <li><a data-toggle="pill" href="#menu1">Bajas</a></li>
-  <li><a data-toggle="pill" href="#menu2">Cambios</a></li>
-  <li><a data-toggle="pill" href="#menu3">Consultas</a></li>
+  <li class="active"><a data-toggle="pill" href="#home1">Insert</a></li>
+  <li><a data-toggle="pill" href="#menu1">Delete</a></li>
+  <li><a data-toggle="pill" href="#menu2">Update</a></li>
+  <li><a data-toggle="pill" href="#menu3">Consults</a></li>
 </ul>
 
 <div class="tab-content" >
@@ -28,8 +28,8 @@
     <div id="menu1" class="tab-pane fade">
 		</br>
     <div class="col-xs-5">
-    <label for="idbaja">Ingrese la matricula de la vacante que desea dar de baja	</br></label>
-    <input type="text" class="form-control" placeholder="Matricula" id="idbaja" autofocus>
+    <label for="idbaja">Insert the SSO that you want to delete	</br></label>
+    <input type="text" class="form-control" placeholder="SOS" id="idbaja" autofocus>
       </div>
     </div>
 
@@ -41,8 +41,8 @@
 			<br>
 			<div class="form-group">
 
-				<label for="idbaja">Ingrese la matricula de la vacante que desea  editar	</br></label>
-				<input type="text" class="form-control" placeholder="Matricula" id="idbaja" autofocus>
+				<label for="idbaja">Insert the SSO that you want to update	</br></label>
+				<input type="text" class="form-control" placeholder="SOS" id="idbaja" autofocus>
 				<label for="name">Name:</label>
 				<input type="text" class="form-control" id="name">
 				<label for="fechaini">Begin Date:</label>
@@ -65,8 +65,8 @@
   <div id="menu3" class="tab-pane fade">
 	</br>
 		<div class="col-xs-5">
-		<label for="idbaja">Ingrese la matricula de la vacante que desea consultar	</br></label>
-		<input type="text" class="form-control" placeholder="Matricula" id="idbaja" autofocus>
+		<label for="idbaja">Insert the SSO that you want to consult	</br></label>
+		<input type="text" class="form-control" placeholder="SOS" id="idbaja" autofocus>
 			</div>
   </div>
 
