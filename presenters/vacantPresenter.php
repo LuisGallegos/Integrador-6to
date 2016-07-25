@@ -15,6 +15,10 @@ if(isset($request->flag)){
         $json= json_encode($promise);
         echo($json);
         break;
+      case 'newVacant':
+        $promise = $vaMo->newVacant($request->vacant);
+        echo($promise);
+        break;
     }
 
 }else{
@@ -35,8 +39,11 @@ class vacantPr {
 
     public function viewVacant(){
         return $this->vM->viewVacant();
-      }
+    }
 
+    public function newVacant($objectVacant){
+        return $this->vM->newVacant($objectVacant);
+      }
 
 }
 

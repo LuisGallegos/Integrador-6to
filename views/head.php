@@ -13,4 +13,7 @@
     <link href="../css/timeline.css" rel="stylesheet">
     <link href="../css/sb-admin-2.css" rel="stylesheet">
     <link href="../components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="../components/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../components/plugins/iCheck/flat/blue.css"> -->
 </head>

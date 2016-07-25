@@ -14,26 +14,19 @@ class vacant_model{
       return $rs;
     }
 
-}
-
-/*
-public function addPro($objectProject){
+    public function addPro($objectVacant){
       global $conn,$INSERT_PROJECT;
       $conn->StartTrans();
       $conn->Execute($INSERT_PROJECT,$this->objectToArray($objectProject)); //UPDATE AWARD CONFIGURATION
       if($conn->HasFailedTrans()){
-        $message = "Error";
+          $message = "Error";
       }else{
-        $message = "Success";
+          $message = "Success";
       }
       $conn->CompleteTrans();
       echo $message;
-    }
-    */
-
-
-/*
-public function objectToArray($object){
+      }
+    public function objectToArray($object){
       $newArray = array();
       $i=0;
       foreach ($object as $value) {
@@ -41,8 +34,9 @@ public function objectToArray($object){
         $i++;
       }
       return $newArray;
-    }
-*/
+      }
+
+}
 
 /*
 public function pushToArray($object,$varToPush){
