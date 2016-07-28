@@ -1,24 +1,37 @@
-create database SRH;
-go
-use SRH;
-go
+
+use master
+DROP DATABASE SRH;
+
+create database SRH
+use SRH
+
 CREATE TABLE users (
   username varchar(9)  NOT NULL,
   pass varchar(128) NOT NULL,
   email varchar(50)  NOT NULL,
-  stat int NOT NULL DEFAULT '1',
+  stat int  DEFAULT '1',
   PRIMARY KEY (username)
 );
 
-insert into users VALUES ('212561549','123','luisalberto.gallegos@ge.com',1);
 
 CREATE TABLE attempts(
   username varchar(9) NOT NULL,
-  times int NOT NULL DEFAULT '0',
+  times int  DEFAULT '0',
   FOREIGN KEY (username) REFERENCES users(username)
 );
 
-insert into attempts VALUES ('212561549','0');
+insert into users values
+
+
+('212561549','123','robertoputo@ge.com',1),
+
+('212561548','123','robertoputo@ge.com',1);
+
+insert into attempts values('212561549',0),('212561548',0);
+
+
+select*from vacantes;
+
 
 CREATE TABLE Estados
 (
@@ -194,18 +207,18 @@ INSERT INTO Categorias VALUES
 INSERT INTO Vacantes VALUES
 ('Contador Administrativo','2016/06/06','2016/12/06',6000.00,
 'Analizar los ingresos y costos de cada actividad, la cantidad de recursos utilizados,
-as� como la cantidad de trabajo o depreciaci�n de la maquinaria, equipos o edificios');
+asi como la cantidad de trabajo o depreciacion de la maquinaria, equipos o edificios');
 INSERT INTO Vacantes VALUES
 ('Abogado Laboral','2016/06/13','2016/1/06',8000.00,
-'Obligaciones de despidos, reclamaciones de cantidad, mobbing, expedientes de regulaci�n de empleo,
-accidentes de trabajo, invalidez o jubilaci�n');
+'Obligaciones de despidos, reclamaciones de cantidad, mobbing, expedientes de regulacion de empleo,
+accidentes de trabajo, invalidez o jubilacion');
 INSERT INTO Vacantes VALUES
 ('Abogado Penal','2016/06/13','2017/06/06',9000.00,
-'Defender a personas acusadas de cometer delitos, como delitos econ�micos,
-delitos administrativos y pol�ticos');
+'Defender a personas acusadas de cometer delitos, como delitos economicos,
+delitos administrativos y politicos');
 INSERT INTO Vacantes VALUES
 ('Secretaria Ejecutiva','2016/06/13','2016/12/06',5500.00,
-'Labores administrativas, de organizaci�n y difusi�n al congreso.');
+'Labores administrativas, de organizacion y difusion al congreso.');
 INSERT INTO Vacantes VALUES
 ('Gerente de Ventas','2016/06/13','2017/12/06',1500.00,
 'Coordinacion del personal del area de ventas');
