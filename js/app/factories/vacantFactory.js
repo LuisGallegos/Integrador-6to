@@ -43,7 +43,7 @@ define([], function() {
       newVacant: function(vacant) {
          //We need to send a flag and data to process in server
          var dataToSend = {
-            "flag": "newVacant"
+            "flag": "newVacant",
             "vacant": vacant
          },
          //Required data to service request
