@@ -15,14 +15,14 @@ and open the template in the editor.
                 setcookie(session_name(), '', time() - 42000, '/');
                 header("Location: ../views/login.php");
               }
-         }else{}
+         }
     include ('head.php');
     include('header.php');
 ?>
-  <body>
+  <body class="hold-transition skin-blue sidebar-mini">
 <!--      /////////////////////////////////////////////     START SECTION  ///////////////////////////////////////////--->
-    <div id="page-wrapper">
-      <div ui-view></div>
+    <div class="content-wrapper">
+      <div class="content"  ui-view></div>
     </div>
 <!--     /////////////////////////////////////////////     END SECTION ///////////////////////////////////////////--->
 <?php include '../views/footer.php';?>

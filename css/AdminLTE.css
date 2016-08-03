@@ -3,7 +3,6 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-
  body {
      background-color: white;
  }
@@ -517,7 +516,7 @@
  .content-wrapper,
  .right-side {
    min-height: 100%;
-   background-color: #ecf0f5;
+   background-color: white;
    z-index: 800;
  }
  .main-footer {
@@ -5344,3 +5343,22 @@
      white-space: normal !important;
    }
  }
+
+ .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+margin-left: 230px;
+  background: #fff;
+  padding: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border-top: 1px solid #d2d6de;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(210, 214, 222);
+}
