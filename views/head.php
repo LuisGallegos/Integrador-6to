@@ -4,13 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>SRH</title>
-    <script src="../components/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="../components/jQuery/jquery-2.2.3.min.js" type="text/javascript"></script>
     <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" >
     <link href="../components/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="../css/sb-admin-2.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/AdminLTE.css">
-    <link rel="stylesheet" href="../css/AdminLTE.min.css">
+    <!-- <link rel="stylesheet" href="../css/AdminLTE.min.css"> -->
     <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="../components/iCheck/flat/blue.css">
     <link rel="stylesheet" href="../components/datepicker/datepicker3.css">

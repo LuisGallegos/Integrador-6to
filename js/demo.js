@@ -53,14 +53,14 @@
       "<h4 class='control-sidebar-heading'>"
       + "Layout Optionssdfdss"
       + "</h4>"
-      //   //Fixed layout
-      // + "<div class='form-group'>"
-      // + "<label class='control-sidebar-subheading'>"
-      // + "<input type='checkbox' data-layout='fixed' class='pull-right'/> "
-      // + "Fixed layout"
-      // + "</label>"
-      // + "<p>Activate the fixed layout. You can't use fixed and boxed layouts together</p>"
-      // + "</div>"
+        //Fixed layout
+      + "<div class='form-group'>"
+      + "<label class='control-sidebar-subheading'>"
+      + "<input type='checkbox' data-layout='fixed' class='pull-right'/> "
+      + "Fixed layout"
+      + "</label>"
+      + "<p>Activate the fixed layout. You can't use fixed and boxed layouts together</p>"
+      + "</div>"
       //   //Boxed layout
       // + "<div class='form-group'>"
       // + "<label class='control-sidebar-subheading'>"

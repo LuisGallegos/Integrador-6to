@@ -9,7 +9,7 @@ require.config({
         loginController: 'js/app/controllers/loginController',
         vacantController: 'js/app/controllers/vacantController',
         vacantFactory:'js/app/factories/vacantFactory',
-        jquery: 'components/jquery/jquery.min',
+        jquery: 'components/jQuery/jquery-2.2.3.min',
         bootstrap: 'components/bootstrap/dist/js/bootstrap.min',
         dashboard: 'js/dashboard',
         dataragepicker: 'components/daterangepicker/daterangepicker',

@@ -2,7 +2,12 @@
 
   <header class="main-header">
     <!-- Logo -->
-
+    <a href="general.php" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>HR</b>S</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>HR</b> System</span>
+    </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -84,21 +89,20 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-
         <li>
-            <a ui-sref-active="active" ui-sref="home"><i class="fa fa-dashboard fa-fw"></i> Vacantes</a>
+            <a ui-sref-active="active" ui-sref="home"><i class="fa fa-dashboard fa-fw"></i> <span>Vacantes</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="nomination"><i class="fa fa-table fa-fw"></i> Departamentos</a>
+            <a ui-sref-active="active" ui-sref="nomination"><i class="fa fa-table fa-fw"></i><span> Departamentos</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="empleados"><i class="fa fa-times fa-fw"></i> Empleados</a>
+            <a ui-sref-active="active" ui-sref="empleados"><i class="fa fa-times fa-fw"></i><span> Empleados</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="Perceptions"><i class="fa fa-edit fa-fw"></i> Perceptions</a>
+            <a ui-sref-active="active" ui-sref="Perceptions"><i class="fa fa-edit fa-fw"></i><span> Perceptions</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="downloads"><i class="fa fa-table fa-fw"></i> Deducciones</a>
+            <a ui-sref-active="active" ui-sref="downloads"><i class="fa fa-table fa-fw"></i><span> Deducciones</span></a>
         </li>
 
         <li class="active treeview">
@@ -115,7 +119,10 @@
           </ul>
         </li>
 
-        <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+        <li>
+          <a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

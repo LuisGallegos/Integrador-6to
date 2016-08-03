@@ -1,10 +1,4 @@
-<footer class="footer">
-  <div class="pull-right hidden-xs">
-    <b>Version</b> 2.3.5
-  </div>
-  <strong>Copyright &copy; 2016-2016 <a href="http://upq.edu.mx">TU GFA X2</a>.</strong> All rights
-  reserved.
-</footer>
+
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
