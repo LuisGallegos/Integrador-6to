@@ -9,16 +9,29 @@ CREATE TABLE users (
   username varchar(9)  NOT NULL,
   pass varchar(128) NOT NULL,
   email varchar(50)  NOT NULL,
-  stat int NOT NULL DEFAULT '1',
+  stat int  DEFAULT '1',
   PRIMARY KEY (username)
 );
 
 
 CREATE TABLE attempts(
   username varchar(9) NOT NULL,
-  times int NOT NULL DEFAULT '0',
+  times int  DEFAULT '0',
   FOREIGN KEY (username) REFERENCES users(username)
 );
+
+insert into users values
+
+
+('212561549','123','robertoputo@ge.com',1),
+
+('212561548','123','robertoputo@ge.com',1);
+
+insert into attempts values('212561549',0),('212561548',0);
+
+
+select*from vacantes;
+
 
 CREATE TABLE Estados
 (
@@ -35,7 +48,7 @@ CREATE TABLE Categorias
 	PRIMARY KEY (id_categoria)
 );
 
-CREATE TABLE Vacantes 
+CREATE TABLE Vacantes
 (
 	id_folioV int IDENTITY,
 	nombre varchar(80),
@@ -73,7 +86,7 @@ CREATE TABLE Evaluaciones
 	FOREIGN KEY (folioC_id) REFERENCES Candidatos(id_folioC)
 );
 
-CREATE TABLE Departamentos 
+CREATE TABLE Departamentos
 (
  id_departamento int IDENTITY,
  descripcion varchar(80),
@@ -87,7 +100,7 @@ id_puesto int IDENTITY,
 descripcion text,
 departamento_id int,
 FOREIGN KEY (departamento_id) REFERENCES Departamentos(id_departamento),
-PRIMARY KEY(id_puesto)	
+PRIMARY KEY(id_puesto)
 );
 
 
@@ -191,55 +204,55 @@ INSERT INTO Categorias VALUES
 INSERT INTO Categorias VALUES
 ('ADMINISTRATIVOS',8000.00);
 
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Contador Administrativo','2016/06/06','2016/12/06',6000.00,
-'Analizar los ingresos y costos de cada actividad, la cantidad de recursos utilizados, 
-así como la cantidad de trabajo o depreciación de la maquinaria, equipos o edificios');
-INSERT INTO Vacantes VALUES 
+'Analizar los ingresos y costos de cada actividad, la cantidad de recursos utilizados,
+asi como la cantidad de trabajo o depreciacion de la maquinaria, equipos o edificios');
+INSERT INTO Vacantes VALUES
 ('Abogado Laboral','2016/06/13','2016/1/06',8000.00,
-'Obligaciones de despidos, reclamaciones de cantidad, mobbing, expedientes de regulación de empleo, 
-accidentes de trabajo, invalidez o jubilación');
-INSERT INTO Vacantes VALUES 
+'Obligaciones de despidos, reclamaciones de cantidad, mobbing, expedientes de regulacion de empleo,
+accidentes de trabajo, invalidez o jubilacion');
+INSERT INTO Vacantes VALUES
 ('Abogado Penal','2016/06/13','2017/06/06',9000.00,
-'Defender a personas acusadas de cometer delitos, como delitos económicos,  
-delitos administrativos y políticos');
-INSERT INTO Vacantes VALUES 
+'Defender a personas acusadas de cometer delitos, como delitos economicos,
+delitos administrativos y politicos');
+INSERT INTO Vacantes VALUES
 ('Secretaria Ejecutiva','2016/06/13','2016/12/06',5500.00,
-'Labores administrativas, de organización y difusión al congreso.');
-INSERT INTO Vacantes VALUES 
+'Labores administrativas, de organizacion y difusion al congreso.');
+INSERT INTO Vacantes VALUES
 ('Gerente de Ventas','2016/06/13','2017/12/06',1500.00,
 'Coordinacion del personal del area de ventas');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Gerente de Compras','2016/06/13','2017/12/06',1500.00,
 'Coordinacion del personal del area de compras');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Gerente Administrativo','2016/06/13','2017/12/06',1500.00,
 'Coordinacion del personal del area administrativo');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Gerente General','2016/06/13','2017/12/06',1500.00,
 'Coordinacion del personal en general e intermediario con la alta gerencia');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Lic. Recursos Humanos','2016/06/13','2017/12/06',12500.00,
 'Coordinacion y Administrar las acciones del personal y sus puestos');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Seguridad','2016/06/13','2017/12/06',6000.00,
 'Coordinacion de la seguridad de la empresa en general');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Seguridad Nocturna','2016/06/13','2017/12/06',6000.00,
 'Coordinacion de la seguridad de la empresa por la noche');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Secretaria Personal Presidente','2016/06/13','2017/12/06',10000.00,
-'Coordinacion de las actividades del presidente, administracion de citas 
+'Coordinacion de las actividades del presidente, administracion de citas
 y acciones personales y laborales del presidente');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Recepcionista','2016/06/13','2016/12/06',7500.00,
-'Coordinacion de las personas con sus respectivas area, atenciones telefonicas y 
+'Coordinacion de las personas con sus respectivas area, atenciones telefonicas y
 coordinacion de las mismas al area correspondiente');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Ingeniero en Sistemas','2016/06/13','2017/12/06',2000.00,
-'Coordinacion de la red en la empresa para el buen funcionamiento de la empresa, 
+'Coordinacion de la red en la empresa para el buen funcionamiento de la empresa,
 sus computadoras y dispositivos');
-INSERT INTO Vacantes VALUES 
+INSERT INTO Vacantes VALUES
 ('Marketing','2016/06/13','2017/12/06',1800.00,
 'Coordinacion del marketing de la empresa para su buena presentacion ante la sociedad
 asi mismo como el buen conocimiento ante la misma');
@@ -427,40 +440,33 @@ CREATE PROCEDURE ps_ponertotal
 @id_nomina int,
 @total int
 as
-UPDATE Nomina set total=@total where id_nomina=@id_nomina; 
+UPDATE Nomina set total=@total where id_nomina=@id_nomina;
 
 
 CREATE PROCEDURE ps_obtenersalario
 @id_empleado int
 as
-SELECT sueldo from Categorias as cat join Departamentos as dep on cat.id_categoria=dep.categoria_id  
-join Puestos as pu on dep.id_departamento=pu.departamento_id join Contratos as con on pu.id_puesto=con.puesto_id 
+SELECT sueldo from Categorias as cat join Departamentos as dep on cat.id_categoria=dep.categoria_id
+join Puestos as pu on dep.id_departamento=pu.departamento_id join Contratos as con on pu.id_puesto=con.puesto_id
 join Empleados as em on em.contrato_id=con.id_contrato where id_empleado=@id_empleado;
 
 /************************************************ ****************************************************/
 CREATE FUNCTION ft_ejemplo
-begin 
+begin
 	@id_empleado int,
 return @salario
-as 
+as
 	@suelo
 	@deducion1
 	@retencion
 
-	Select @sueldo = sueldo from Categoia as ca join puesto as pu 
+	Select @sueldo = sueldo from Categoia as ca join puesto as pu
 
-	select @deducion1 = porcen taje from 
+	select @deducion1 = porcen taje from
 
 	@retencion = @sueldo *  @deducion1
 	@salario = @sueldo - @retencion
 
-@return @salario 
+@return @salario
 
-set total = @salario from Nomina 
-
-
-
-
-
-
-
+set total = @salario from Nomina

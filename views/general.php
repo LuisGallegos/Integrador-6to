@@ -15,16 +15,24 @@ and open the template in the editor.
                 setcookie(session_name(), '', time() - 42000, '/');
                 header("Location: ../views/login.php");
               }
-         }else{}
+         }
     include ('head.php');
     include('header.php');
 ?>
-  <body>
+  <body class="hold-transition skin-blue sidebar-mini">
 <!--      /////////////////////////////////////////////     START SECTION  ///////////////////////////////////////////--->
-    <div id="page-wrapper">
-      <div ui-view></div>
+    <div class="content-wrapper">
+      <div class="content"  ui-view></div>
     </div>
 <!--     /////////////////////////////////////////////     END SECTION ///////////////////////////////////////////--->
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Version</b> 2.3.5
+  </div>
+  <strong>Copyright &copy; 2016-2016 <a href="http://upq.edu.mx">TU GFA X2</a>.</strong> All rights
+  reserved.
+</footer>
 <?php include '../views/footer.php';?>
+
   </body>
 </html>
