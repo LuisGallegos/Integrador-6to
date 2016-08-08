@@ -435,6 +435,40 @@ INSERT INTO Nomina VALUES
 
 --------------  STORE PROCEDURES!----------------------------
 
+-------------  PROCEDIMIENTO PARA CONSULTA VACANTES
+CREATE PROCEDURE CVacSRH as
+SELECT id_folioV as 'folioVacante',nombre,fecha_inicio as 'fechaInicio',fecha_termino as 'fechaTermino',Salario as 'salario',Descripcion as 'descripcion' FROM Vacantes;
+EXEC CVacSRH
+
+----------------- PROCEDIMIENTO PARA INSERTAR VACANTE
+CREATE PROCEDURE IVacSRH
+@nombre varchar(80),
+@fecha_inicio DATE,
+@fecha_termino DATE,
+@Salario decimal(8,2),
+@Descripcion varchar(200)
+as
+INSERT INTO Vacantes(nombre,fecha_inicio,fecha_termino,Salario,Descripcion) VALUES (@nombre,@fecha_inicio,@fecha_termino,@Salario,@Descripcion);
+
+EXEC IVacSRH 'lololo','2016/06/13','2017/12/06',1800.00,
+'Coordinacion del marketing de la empresa para su buena presentacion ante la sociedad
+asi mismo como el buen conocimiento ante la misma'
+
+------------- PROCEDIMIENTO PARA ACTUALIZAR VACANTES
+CREATE PROCEDURE EVacSRH
+@id_folioV int,
+@nombre varchar(80),
+@fecha_inicio DATE,
+@fecha_termino DATE,
+@Salario decimal(8,2),
+@Descripcion varchar(200)
+as
+UPDATE Vacantes SET nombre=@nombre,fecha_inicio=@fecha_inicio,fecha_termino=@fecha_termino,Salario=@Salario,Descripcion=@Descripcion
+WHERE id_folioV=@id_folioV;
+
+EXEC EVacSRH 1,'Contador Administrativo','2010/06/06','2010/12/06',10000.00,
+'Analizar los ingresos y costos de cada actividad, la cantidad de recursos utilizados,
+asi como la cantidad de trabajo o depreciacion de la maquinaria, equipos o edificios'
 
 
 ------------------ PROCEDIMIENTO PARA ELIMINAR VACANTE
@@ -442,7 +476,6 @@ CREATE PROCEDURE DVacSRH
 @id_folioV int
 as
 DELETE Vacantes WHERE id_folioV=@id_folioV;
-
 EXEC DVacSRH 16
 
 set dateformat 'ymd';
