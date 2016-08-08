@@ -5,8 +5,8 @@ $dbuname = "";
 $dbpass = "";
 $dbname = "";*/
 
-$dbhost  = "CASA-PC";    //DESKTOP-VJH4HBQ //CASA-PC
-$dbuname = "roots";    //roots
+$dbhost  = "DESKTOP-VJH4HBQ";    //DESKTOP-VJH4HBQ //CASA-PC
+$dbuname = "root";    //roots
 $dbpass  = "123";
 $dbname  = "SRH";
 
