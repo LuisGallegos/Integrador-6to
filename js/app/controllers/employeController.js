@@ -24,18 +24,7 @@ define([], function( ){
           });
       };
 
-      $scope.updateEmploye= function () {
-        employeFactory.updatedEmploye($scope.employeUp).then(
-          function (promise) {
-            $scope.updaEmploye = promise;
-            if ($scope.updaEmploye==true) {
-              sweetAlert("Great", "You successfully updated the Employe!", "success");
-            }else{
-              sweetAlert("Oops...", "Unable to updated the Employe!", "error");
-            }
-            $scope.viewEmploye();
-          });
-      };
+    
 
       $scope.values=function (index) {
         $scope.employeUp.idEmploye = $scope.employeData[index][0];

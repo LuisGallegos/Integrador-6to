@@ -1,5 +1,5 @@
-define(['loginController','vacantController','vacantFactory','candidatController','candidatFactory','nomineeController','nomineeFactory'],
-function(loginController,vacantController,vacantFactory,candidatController,candidatFactory,nomineeController,nomineeFactory){
+define(['loginController','vacantController','vacantFactory','candidatController','candidatFactory','nomineeController','nomineeFactory','employeController','employeFactory'],
+function(loginController,vacantController,vacantFactory,candidatController,candidatFactory,nomineeController,nomineeFactory,employeController,employeFactory){
   var managerModule = angular.module('managerModule',['ui.router']);
 
   managerModule.controller('loginController',loginController);
@@ -9,6 +9,8 @@ function(loginController,vacantController,vacantFactory,candidatController,candi
   managerModule.factory('candidatFactory', candidatFactory);
   managerModule.controller('nomineeController',nomineeController);
   managerModule.factory('nomineeFactory', nomineeFactory);
+  managerModule.controller('employeController',employeController);
+  managerModule.factory('employeFactory', employeFactory);
   managerModule.config(function ($stateProvider,$urlRouterProvider){
       $stateProvider
               .state('home', {
@@ -32,7 +34,8 @@ function(loginController,vacantController,vacantFactory,candidatController,candi
                 })
               .state('employees', {
                 url: '/employees',
-                templateUrl: 'empleados.php'
+                templateUrl: 'empleados.php',
+                controller:employeController,
                 })
 
       $urlRouterProvider.otherwise('/home');

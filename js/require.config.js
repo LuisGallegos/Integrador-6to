@@ -13,6 +13,8 @@ require.config({
         candidatFactory:'js/app/factories/candidatFactory',
         nomineeController: 'js/app/controllers/nomineeController',
         nomineeFactory:'js/app/factories/nomineeFactory',
+        employeController: 'js/app/controllers/employeController',
+        employeFactory:'js/app/factories/employeFactory',
         jquery: 'components/jQuery/jquery-2.2.3.min',
         bootstrap: 'components/bootstrap/dist/js/bootstrap.min',
         dashboard: 'js/dashboard',

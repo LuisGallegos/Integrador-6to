@@ -73,7 +73,7 @@ $SELECT_EMPLOYEE="EXEC CEmpSRH;";
 
 //:::::UPDATES
 
-$UPDATE_EMPLOYEE="EXEC AEmpSRH ?,?,?,?,?,?,?;";
+$UPDATE_EMPLOYEE="EXEC AEmpSRH ?,?,?,?;";
 
 //:::::DELETE
 

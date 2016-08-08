@@ -8,17 +8,17 @@ class employe_model{
     public $rs;
 
     public function viewEmploye(){
-      global $conn, $SELECT_EMPLEADOS;
-      $stmt = $conn->Prepare($SELECT_EMPLEADOS);
-      $rs = $conn->GetArray($SELECT_EMPLEADOS);
+      global $conn, $SELECT_EMPLOYEE;
+      $stmt = $conn->Prepare($SELECT_EMPLOYEE);
+      $rs = $conn->GetArray($SELECT_EMPLOYEE);
       return $rs;
     }
 
 
     public function updateEmploye($objectEmploye){
-      global $conn,$UPDATE_EMPLEADOS;
+      global $conn,$UPDATE_EMPLOYEE;
       $conn->StartTrans();
-      $conn->Execute($UPDATE_EMPLEADOS,$this->objectToArray($objectEmploye)); //NEW A EMPLOYE
+      $conn->Execute($UPDATE_EMPLOYEE,$this->objectToArray($objectEmploye)); //NEW A EMPLOYE
       if($conn->HasFailedTrans()){
           $message = false;
       }else{
@@ -29,9 +29,9 @@ class employe_model{
     }
 
     public function deleteEmploye($idEmploye){
-      global $conn,$DELETE_EMPLOYE;
+      global $conn,$DELETE_EMPLOYEE;
       $conn->StartTrans();
-      $conn->Execute($DELETE_EMPLOYE,$idEmploye); //DELETE A EMPLOYE
+      $conn->Execute($DELETE_EMPLOYEE,$idEmploye); //DELETE A EMPLOYE
       if($conn->HasFailedTrans()){
           $message = false;
       }else{
@@ -52,15 +52,6 @@ class employe_model{
       }
 
 }
-
-/*
-public function pushToArray($object,$varToPush){
-      $newArray = $this->objectToArray($object);
-      array_push($newArray,$varToPush);
-      return $newArray;
-    }
-*/
-
 
 
 ?>
