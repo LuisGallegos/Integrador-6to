@@ -90,19 +90,16 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-            <a ui-sref-active="active" ui-sref="vacants" ><i class="fa fa-dashboard fa-fw"></i> <span>Vacantes</span></a>
+            <a ui-sref-active="active" ui-sref="vacants" ><i class="fa fa-dashboard fa-fw"></i> <span>Vacants</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="nomination"><i class="fa fa-table fa-fw"></i><span> Departamentos</span></a>
+            <a ui-sref-active="active" ui-sref="employees"><i class="fa fa-times fa-fw"></i><span> Employees</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="empleados"><i class="fa fa-times fa-fw"></i><span> Empleados</span></a>
+            <a ui-sref-active="active" ui-sref="nomines"><i class="fa fa-table fa-fw"></i><span> Nomine</span></a>
         </li>
         <li>
-            <a ui-sref-active="active" ui-sref="Perceptions"><i class="fa fa-edit fa-fw"></i><span> Perceptions</span></a>
-        </li>
-        <li>
-            <a ui-sref-active="active" ui-sref="downloads"><i class="fa fa-table fa-fw"></i><span> Deducciones</span></a>
+            <a ui-sref-active="active" ui-sref="candidats"><i class="fa fa-edit fa-fw"></i><span> Candidats</span></a>
         </li>
 
         <li class="active treeview">

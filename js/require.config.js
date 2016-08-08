@@ -9,6 +9,8 @@ require.config({
         loginController: 'js/app/controllers/loginController',
         vacantController: 'js/app/controllers/vacantController',
         vacantFactory:'js/app/factories/vacantFactory',
+        candidatController: 'js/app/controllers/candidatController',
+        candidatFactory:'js/app/factories/candidatFactory',
         jquery: 'components/jQuery/jquery-2.2.3.min',
         bootstrap: 'components/bootstrap/dist/js/bootstrap.min',
         dashboard: 'js/dashboard',

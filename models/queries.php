@@ -21,15 +21,38 @@ $INSERT_ATTEMPTS= "Insert into attempts(username) values (?);";//Insert user on 
 //-------------------------------------------------------------------------------LOGIN QUERIES-----------------------------------------------------------------------------------------------
 
 
-
-//SELECT
+//-------------------------------------------------------------------------------VACANAT QUERIES-----------------------------------------------------------------------------------------------
+//:::::SELECT
 
 $SELECT_VACANTES="EXEC CVacSRH;";
 
-//UPDATE
+//:::::UPDATES
 
 $UPDATE_VACANT="EXEC EVacSRH ?,?,?,?,?,?;";
 
+//:::::INSERTS
+
+$INSERT_VACANT="EXEC IVacSRH ?,?,?,?,?;";
+
+//:::::DELETE
+
+$DELETE_VACANT="EXEC DVacSRH ?;";
 
 
+//-------------------------------------------------------------------------------VACANAT QUERIES-----------------------------------------------------------------------------------------------
+//:::::SELECT
+
+$SELECT_CANDIDAT="EXEC CCanSRH;";
+
+//:::::UPDATES
+
+$UPDATE_CANDIDAT="EXEC DCanSRH ?,?,?,?,?,?,?,1;";
+
+//:::::INSERTS
+
+$INSERT_CANDIDAT="EXEC ICanSRH ?,?,?,?,?,?,?;";
+
+//:::::DELETE
+
+//$DELETE_CANDIDAT="EXEC DVacSRH ?;";
 ?>

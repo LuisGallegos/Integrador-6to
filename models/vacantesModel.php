@@ -14,18 +14,45 @@ class vacant_model{
       return $rs;
     }
 
-    public function addPro($objectVacant){
-      global $conn,$INSERT_PROJECT;
+    public function newVacant($objectVacant){
+      global $conn,$INSERT_VACANT;
       $conn->StartTrans();
-      $conn->Execute($INSERT_PROJECT,$this->objectToArray($objectProject)); //UPDATE AWARD CONFIGURATION
+      $conn->Execute($INSERT_VACANT,$this->objectToArray($objectVacant)); //NEW A VACANT
       if($conn->HasFailedTrans()){
-          $message = "Error";
+          $message = false;
       }else{
-          $message = "Success";
+          $message = true;
       }
       $conn->CompleteTrans();
       echo $message;
+    }
+
+    public function updateVacant($objectVacant){
+      global $conn,$UPDATE_VACANT;
+      $conn->StartTrans();
+      $conn->Execute($UPDATE_VACANT,$this->objectToArray($objectVacant)); //NEW A VACANT
+      if($conn->HasFailedTrans()){
+          $message = false;
+      }else{
+          $message = true;
       }
+      $conn->CompleteTrans();
+      echo $message;
+    }
+
+    public function deleteVacant($idVacant){
+      global $conn,$DELETE_VACANT;
+      $conn->StartTrans();
+      $conn->Execute($DELETE_VACANT,$idVacant); //DELETE A VACANT
+      if($conn->HasFailedTrans()){
+          $message = false;
+      }else{
+          $message = true;
+      }
+      $conn->CompleteTrans();
+      echo $message;
+    }
+
     public function objectToArray($object){
       $newArray = array();
       $i=0;

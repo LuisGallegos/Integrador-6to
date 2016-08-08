@@ -1,6 +1,6 @@
 create database SRH;
 go
-use SRH:
+use SRH
 go
 CREATE TABLE users (
   username varchar(9)  NOT NULL,
@@ -10,6 +10,9 @@ CREATE TABLE users (
   PRIMARY KEY (username)
 );
 
+ALTER TABLE users
+ADD urlImage varchar(200) NULL;
+
 
 CREATE TABLE attempts(
   username varchar(9) NOT NULL,
@@ -18,17 +21,11 @@ CREATE TABLE attempts(
 );
 
 insert into users values
+('212561549','123','luisalberto.gallegos@ge.com',1,''),
 
-
-('212561549','123','luisalberto.gallegos@ge.com',1),
-
-('212561548','123','roberto.moya@ge.com',1);
+('212561548','123','roberto.moya@ge.com',1,'');
 
 insert into attempts values('212561549',0),('212561548',0);
-
-
-select*from vacantes;
-
 
 CREATE TABLE Estados
 (
@@ -66,8 +63,8 @@ CREATE TABLE Candidatos (
 	folioV_id int,
 	estado_id int,
 	PRIMARY KEY (id_folioC),
-	FOREIGN KEY (estado_id) REFERENCES Estados(id_estado),
-	FOREIGN KEY (folioV_id) REFERENCES Vacantes(id_folioV)
+	FOREIGN KEY (estado_id) REFERENCES Estados(id_estado) ON DELETE SET NULL ON UPDATE CASCADE,
+	FOREIGN KEY (folioV_id) REFERENCES Vacantes(id_folioV) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 
@@ -80,7 +77,7 @@ CREATE TABLE Evaluaciones
 	prue_psico varchar(2),
 	entrevista_fin varchar(2),
 	PRIMARY KEY (id_folioE),
-	FOREIGN KEY (folioC_id) REFERENCES Candidatos(id_folioC)
+	FOREIGN KEY (folioC_id) REFERENCES Candidatos(id_folioC) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Departamentos
@@ -89,14 +86,14 @@ CREATE TABLE Departamentos
  descripcion varchar(80),
  categoria_id int,
  PRIMARY KEY (id_departamento),
- FOREIGN KEY (categoria_id) REFERENCES Categorias(id_categoria)
+ FOREIGN KEY (categoria_id) REFERENCES Categorias(id_categoria) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Puestos (
 id_puesto int IDENTITY,
 descripcion text,
 departamento_id int,
-FOREIGN KEY (departamento_id) REFERENCES Departamentos(id_departamento),
+FOREIGN KEY (departamento_id) REFERENCES Departamentos(id_departamento) ON DELETE CASCADE ON UPDATE CASCADE,
 PRIMARY KEY(id_puesto)
 );
 
@@ -109,8 +106,8 @@ CREATE TABLE Contratos
  fecha_termino DATE,
  puesto_id int,
  PRIMARY KEY (id_contrato),
- FOREIGN KEY (folioC_id) REFERENCES Candidatos(id_folioC),
- FOREIGN KEY (puesto_id) REFERENCES Puestos(id_puesto),
+ FOREIGN KEY (folioC_id) REFERENCES Candidatos(id_folioC) ON DELETE CASCADE ON UPDATE CASCADE,
+ FOREIGN KEY (puesto_id) REFERENCES Puestos(id_puesto) ON DELETE CASCADE ON UPDATE CASCADE,
 );
 
 
@@ -121,7 +118,7 @@ CREATE TABLE Empleados
  fechaalta date,
  contrato_id int,
  PRIMARY KEY (id_empleado),
-  FOREIGN KEY (contrato_id) REFERENCES Contratos(id_contrato)
+  FOREIGN KEY (contrato_id) REFERENCES Contratos(id_contrato) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Percepciones
@@ -164,7 +161,7 @@ CREATE TABLE Nomina
  deduccion5_id int ,
  total decimal(8,2),
  PRIMARY KEY (id_nomina),
- FOREIGN KEY (empleado_id) REFERENCES Empleados(id_empleado),
+ FOREIGN KEY (empleado_id) REFERENCES Empleados(id_empleado) ON DELETE CASCADE ON UPDATE CASCADE,
  FOREIGN KEY (percepciones1_id) REFERENCES Percepciones(id_percepcion),
  FOREIGN KEY (percepciones2_id) REFERENCES Percepciones(id_percepcion),
  FOREIGN KEY (percepciones3_id) REFERENCES Percepciones(id_percepcion),
@@ -191,6 +188,8 @@ INSERT INTO Estados VALUES
 ('SELECCIONADO');
 INSERT INTO Estados VALUES
 ('CONTRATADO');
+INSERT INTO Estados VALUES
+('DECLINADO');
 
 INSERT INTO Categorias VALUES
 ('EJECUTIVOS',20000.00);
@@ -473,3 +472,136 @@ set total = @salario from Nomina
 CREATE PROCEDURE CVacSRH as
 SELECT id_folioV as 'folioVacante',nombre,fecha_inicio as 'fechaInicio',fecha_termino as 'fechaTermino',Salario as 'salario',Descripcion as 'descripcion' FROM Vacantes;
 EXEC CVacSRH*/
+*/
+
+
+-------------  PROCEDIMIENTO PARA CONSULTA VACANTES
+CREATE PROCEDURE CVacSRH as
+SELECT id_folioV as 'folioVacante',nombre,fecha_inicio as 'fechaInicio',fecha_termino as 'fechaTermino',Salario as 'salario',Descripcion as 'descripcion' FROM Vacantes;
+EXEC CVacSRH
+
+----------------- PROCEDIMIENTO PARA INSERTAR VACANTE
+CREATE PROCEDURE IVacSRH
+@nombre varchar(80),
+@fecha_inicio DATE,
+@fecha_termino DATE,
+@Salario decimal(8,2),
+@Descripcion varchar(200)
+as
+INSERT INTO Vacantes(nombre,fecha_inicio,fecha_termino,Salario,Descripcion) VALUES (@nombre,@fecha_inicio,@fecha_termino,@Salario,@Descripcion);
+
+EXEC IVacSRH 'lololo','2016/06/13','2017/12/06',1800.00,
+'Coordinacion del marketing de la empresa para su buena presentacion ante la sociedad
+asi mismo como el buen conocimiento ante la misma'
+
+------------- PROCEDIMIENTO PARA ACTUALIZAR VACANTES
+CREATE PROCEDURE EVacSRH
+@id_folioV int,
+@nombre varchar(80),
+@fecha_inicio DATE,
+@fecha_termino DATE,
+@Salario decimal(8,2),
+@Descripcion varchar(200)
+as
+UPDATE Vacantes SET nombre=@nombre,fecha_inicio=@fecha_inicio,fecha_termino=@fecha_termino,Salario=@Salario,Descripcion=@Descripcion
+WHERE id_folioV=@id_folioV;
+
+EXEC EVacSRH 1,'Contador Administrativo','2010/06/06','2010/12/06',10000.00,
+'Analizar los ingresos y costos de cada actividad, la cantidad de recursos utilizados,
+asi como la cantidad de trabajo o depreciacion de la maquinaria, equipos o edificios'
+
+
+------------------ PROCEDIMIENTO PARA ELIMINAR VACANTE
+CREATE PROCEDURE DVacSRH
+@id_folioV int
+as
+DELETE Vacantes WHERE id_folioV=@id_folioV;
+EXEC DVacSRH 16
+
+
+----------------- PROCEDIMIENTO CONSULTA VACANTES, ONY ID AND NAME
+
+CREATE PROCEDURE ComboVacSRH as
+SELECT id_folioV as 'folioVacante', nombre FROM Vacantes;
+
+EXEC ComboVacSRH
+------------------ PROCEDIMIENTO CONSULTA CANDIDATOS
+
+CREATE PROCEDURE CCanSRH as
+SELECT c.id_folioC,c.nombre+' '+c.ape_p+' '+c.ape_m as 'Nombre',c.telefono,c.email ,v.nombre as 'Vacante_Solicitada',e.estado as Estado FROM Candidatos as c
+join Vacantes as v ON c.folioV_id=v.id_folioV
+join Estados as e ON c.estado_id=e.id_estado;
+EXEC CCanSRH
+
+------------------ PROCEDIMIENTO INSERTAR CANDIDATO
+CREATE PROCEDURE ICanSRH
+@nombre varchar(100),
+@ape_p varchar(100),
+@ape_m varchar(100),
+@telefono varchar(10),
+@email varchar(100),
+@folioV_id int,
+@estado_id int
+as
+INSERT INTO Candidatos(nombre,ape_p,ape_m,telefono,email,folioV_id,estado_id) VALUES (@nombre,@ape_p,@ape_m,@telefono,@email,@folioV_id,@estado_id);
+
+EXEC ICanSRH 'Alejandro','Gonzales','Torres','4421747570','alex.goz@hotmail.com',15,1
+
+
+------------------ PROCEDIMIENTO CANDIDATO ACTUALIZAR
+
+
+CREATE PROCEDURE DCanSRH
+@id_folioC int,
+@nombre varchar(100),
+@ape_p varchar(100),
+@ape_m varchar(100),
+@telefono varchar(10),
+@email varchar(100),
+@folioV_id int,
+@estado_id int
+as
+UPDATE Candidatos SET nombre=@nombre,ape_p=@ape_p,ape_m=@ape_m,telefono=@telefono,email=@email,folioV_id=@folioV_id,estado_id=@estado_id WHERE id_folioC=@id_folioC;
+
+EXEC DCanSRH 5,'Alejandro','Gonzales','Torres','4421747570','alex.goz@hotmail.com',15,1
+
+------------------ PROCEDIMIENTO CONTRATADO EL CANDIDATO
+
+CREATE PROCEDURE  MCanSRH
+@id_folioC int
+as
+INSERT INTO Contratos(folioC_id,fecha_inicio,fecha_termino,puesto_id) VALUES (@id_folioC,getdate(),'2020/12/31',ROUND(RAND(CHECKSUM(NEWID()))*((SELECT COUNT(*) FROM PUESTOS)-1),0)+1)
+DECLARE @contrato INT
+DECLARE @apellido VARCHAR(3)
+SELECT @apellido= substring(ape_p,1,3) FROM Candidatos WHERE id_folioC=@id_folioC
+SELECT @contrato=id_contrato FROM Contratos WHERE folioC_id=@id_folioC
+INSERT INTO Empleados(cuenta,fechaalta,contrato_id) VALUES ((@apellido+'1234567'),getdate(),@contrato)
+UPDATE Candidatos SET estado_id=4 WHERE id_folioC=@id_folioC;
+
+
+------------------ PROCEDIMIENTO CONSULTA EMPLEADOS
+CREATE PROCEDURE CEmpSRH as
+SELECT ca.nombre+' '+ca.ape_p+' '+ca.ape_m as 'Nombre',ca.telefono,ca.email,e.cuenta,e.fechaalta,e.contrato_id FROM Empleados as e
+JOIN Contratos as c ON e.contrato_id=c.id_contrato
+JOIN Candidatos as ca ON c.folioC_id=ca.folioV_id WHERE e.contrato_id=c.id_contrato
+EXEC CEmpSRH
+
+------------------ PROCEDIMIENTO ELIMINAR EMPLEADOS
+CREATE PROCEDURE DEnpSRH
+@id_empleado INT
+as
+DELETE Empleados WHERE id_empleado=@id_empleado;
+EXEC DEnpSRH 8
+
+
+----------------- PROCEDIMIENTO ACTUALIZAR EMPLEADOS
+CREATE PROCEDURE AEmpSRH
+@id_empleado int,
+@cuenta varchar(10),
+@fechaalta date,
+@contrato_id int
+as
+UPDATE Empleados SET cuenta=@cuenta,fechaalta=@fechaalta,contrato_id=@contrato_id
+WHERE id_empleado=@id_empleado;
+
+EXEC AEmpSRH 2,'756774575','2016/06/06',1

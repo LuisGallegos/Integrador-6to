@@ -19,6 +19,15 @@ if(isset($request->flag)){
         $promise = $vaMo->newVacant($request->vacant);
         echo($promise);
         break;
+      case 'delVacant':
+        $promise = $vaMo->deleteVacant($request->vacant);
+        echo($promise);
+        break;
+      case 'updatedVacant':
+        $promise = $vaMo->updateVacant($request->vacant);
+        echo($promise);
+        break;
+
     }
 
 }else{
@@ -45,6 +54,13 @@ class vacantPr {
         return $this->vM->newVacant($objectVacant);
       }
 
+    public function deleteVacant($idVacant){
+        return $this->vM->deleteVacant($idVacant);
+    }
+
+    public function updateVacant($objectVacant){
+      return $this->vM->updateVacant($objectVacant);
+    }
 }
 
 

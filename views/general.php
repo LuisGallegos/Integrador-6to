@@ -8,7 +8,7 @@ and open the template in the editor.
     session_start();
     $name = $_SESSION['username'];
     if ($_SESSION['timeout'] + 10*60 < time()) {
-        unset($_SESSION['username']);
+        unset($_SESSION['username']);      
           $_SESSION = array();
         //DELETES THE COOKIES
           if (isset($_COOKIE[session_name()])) {
@@ -27,10 +27,9 @@ and open the template in the editor.
 <!--     /////////////////////////////////////////////     END SECTION ///////////////////////////////////////////--->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <b>Version</b> 2.3.5
+    <b>Version</b> 1.3.5
   </div>
-  <strong>Copyright &copy; 2016-2016 <a href="http://upq.edu.mx">TU GFA X2</a>.</strong> All rights
-  reserved.
+  <strong>Copyright &copy; 2016-2016.</strong> All rights reserved.
 </footer>
 <?php include '../views/footer.php';?>
 
