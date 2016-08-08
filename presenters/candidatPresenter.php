@@ -15,12 +15,22 @@ if(isset($request->flag)){
         $json= json_encode($promise);
         echo($json);
         break;
+      case 'viewComboVacant':
+        $promise = $caMo->viewComboVacant();
+        $json= json_encode($promise);
+        echo($json);
+        break;
+      case 'viewComboState':
+        $promise = $caMo->viewComboState();
+        $json= json_encode($promise);
+        echo($json);
+        break;
       case 'newCandidat':
         $promise = $caMo->newCandidat($request->candidat);
         echo($promise);
         break;
-      case 'delCandidat':
-        $promise = $caMo->deleteCandidat($request->candidat);
+      case 'promoveCandidat':
+        $promise = $caMo->promoveCandidat($request->candidat);
         echo($promise);
         break;
       case 'updatedCandidat':
@@ -50,12 +60,20 @@ class candidatPr {
         return $this->cM->viewCandidat();
     }
 
+    public function viewComboVacant(){
+      return $this->cM->viewComboVacant();
+    }
+
+    public function viewComboState(){
+      return $this->cM->viewComboState();
+    }
+
     public function newCandidat($objectCandidat){
         return $this->cM->newCandidat($objectCandidat);
       }
 
-    public function deleteCandidat($idCandidat){
-        return $this->cM->deleteCandidat($idCandidat);
+    public function promoveCandidat($idCandidat){
+        return $this->cM->promoveCandidat($idCandidat);
     }
 
     public function updateCandidat($objectCandidat){

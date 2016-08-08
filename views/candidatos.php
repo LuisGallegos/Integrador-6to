@@ -5,7 +5,7 @@
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <button class="btn btn-info" data-toggle="modal" data-target="#addNewCandidat" ><i class="fa fa-plus"></i>Insert a new Candidat</button>
+      <button class="btn btn-info"  ng-click="comboVacant()" data-toggle="modal" data-target="#addNewCandidat" ><i class="fa fa-plus"></i>Insert a new Candidat</button>
       <button class="btn btn-info" ng-click="viewCandidat()"><i class="fa fa-refresh"></i></button>
     </div>
     <div class="col-md-6">
@@ -28,10 +28,10 @@
             <td>{{candidat.4}}</td>
             <td>{{candidat.5}}</td>
             <td>
-              <button class="btn btn-warning btn-xs" ng-click="values($index)" data-toggle="modal" data-target="#updateCandidat"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-warning btn-xs" ng-click="values($index);comboState()" data-toggle="modal" data-target="#updateCandidat"><i class="fa fa-pencil"></i></button>
             </td>
             <td>
-              <button class="btn btn-danger btn-xs" ng-click="deleteCandidat(candidat.0)"><i class="fa fa-times"></i></button>
+              <button class="btn btn-success btn-xs" ng-click="promoveCandidat(candidat.0)"><i class="fa fa-check"></i></button>
             </td>
           </tr>
         </tbody>
@@ -61,20 +61,18 @@
             <label for="desc">Email:</label>
             <input type="email" class="form-control" ng-model="candidat.email" placeholder="example@example.com" required/>
             <label for="desc">Vacant:</label>
-            <select name="repeatSelect" id="repeatSelect" ng-model="candidat.folioV" required>
-              <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+            <select name="repeatSelectVacant" id="repeatSelectVaca" class="form-control" ng-model="candidat.folioV" required>
+              <option ng-repeat="option in vacantData" value="{{option.0}}">{{option.1}}</option>
             </select>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="insertcandidat()" ng-disabled="newCandidat.$invalid">Go!</button>
+          <button type="button" class="btn btn-primary" ng-click="insertCandidat()" ng-disabled="newCandidat.$invalid">Go!</button>
         </div>
       </div>
     </div>
   </div>
-
-<!-- https://docs.angularjs.org/api/ng/directive/select -->
 
   <!-- Modal -->
 <div class="modal fade" id="updateCandidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -86,21 +84,25 @@
         </div>
         <div class="modal-body">
           <form name="updateCandidat">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" ng-model="candidatUp.name"  ng-value=candidatUp.name />
-            <label for="fechaini">Begin Date:</label>
-            <input type="date" class="form-control" ng-model="candidatUp.startdate"  />
-            <label for="fechafin">End Date:</label>
-            <input type="date" class="form-control" ng-model="candidatUp.enddate"  />
-            <label for="sal">Salary:</label>
-            <input type="text" class="form-control" ng-model="candidatUp.salary" placeholder="$$$$" maxlength="6"  ng-value=candidatUp.salary />
-            <label for="desc">Description:</label>
-            <textarea class="form-control" ng-model=candidatUp.des ng-value=candidatUp.des />
+            <label for="name">First Name:</label>
+            <input type="text" class="form-control" ng-model="candidatUp.name" required/>
+            <label for="fechaini">Father Last Name:</label>
+            <input type="text" class="form-control" ng-model="candidatUp.fatherlast" required/>
+            <label for="fechafin">Mother Last Name:</label>
+            <input type="text" class="form-control" ng-model="candidatUp.motherlast" required/>
+            <label for="sal">Telephone:</label>
+            <input type="text" class="form-control" ng-model="candidatUp.number" placeholder="4421746299" maxlength="10" required/>
+            <label for="desc">Email:</label>
+            <input type="email" class="form-control" ng-model="candidatUp.email" placeholder="example@example.com" required/>
+            <label for="desc">State:</label>
+            <select name="repeatSelectVacant" id="repeatSelectVaca" class="form-control" ng-model="candidatUp.state" required>
+              <option ng-repeat="option in stateData" value="{{option.0}}">{{option.1}}</option>
+            </select>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="updateCandidat()" ng-disabled="updateCandidat.$invalid">Go!</button>
+          <button type="button" class="btn btn-primary" ng-click="updateCandidated()" ng-disabled="updateCandidat.$invalid">Go!</button>
         </div>
       </div>
     </div>

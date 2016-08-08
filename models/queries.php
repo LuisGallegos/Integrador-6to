@@ -42,17 +42,47 @@ $DELETE_VACANT="EXEC DVacSRH ?;";
 //-------------------------------------------------------------------------------VACANAT QUERIES-----------------------------------------------------------------------------------------------
 //:::::SELECT
 
+$SELECT_COMBOVACANT="EXEC ComboVacSRH;";
+
 $SELECT_CANDIDAT="EXEC CCanSRH;";
+
+$SELECT_COMBOSTATE="EXEC ComboEsSRH;";
 
 //:::::UPDATES
 
-$UPDATE_CANDIDAT="EXEC DCanSRH ?,?,?,?,?,?,?,1;";
+$UPDATE_CANDIDAT="EXEC DCanSRH ?,?,?,?,?,?,?;";
 
 //:::::INSERTS
 
-$INSERT_CANDIDAT="EXEC ICanSRH ?,?,?,?,?,?,?;";
+$INSERT_CANDIDAT="EXEC ICanSRH ?,?,?,?,?,?,1;";
+
+
+//:::::MISECELEOUS
+
+$PROMOVEE_CANDIDAT="EXEC MCanSRH ?;";
 
 //:::::DELETE
 
 //$DELETE_CANDIDAT="EXEC DVacSRH ?;";
+
+
+//-------------------------------------------------------------------------------EMPLOYEE QUERIES-----------------------------------------------------------------------------------------------
+//:::::SELECT
+
+$SELECT_EMPLOYEE="EXEC CEmpSRH;";
+
+//:::::UPDATES
+
+$UPDATE_EMPLOYEE="EXEC AEmpSRH ?,?,?,?,?,?,?;";
+
+//:::::DELETE
+
+$DELETE_EMPLOYEE="EXEC DEnpSRH ?;";
+
+//-------------------------------------------------------------------------------NOMINEE QUERIES-----------------------------------------------------------------------------------------------
+
+//:::::SELECT
+
+$SELECT_NOMINEE="SELECT * FROM SENomSRH;";
+
 ?>

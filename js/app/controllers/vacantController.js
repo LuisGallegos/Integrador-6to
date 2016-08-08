@@ -12,8 +12,8 @@ define([], function( ){
       $scope.insertVacant=function () {
         vacantFactory.newVacant($scope.vacant).then(
           function (promise) {
-            $scope.vacantData = promise;
-            if ($scope.vacantData==true) {
+            $scope.vacantDatas = promise;
+            if ($scope.vacantDatas==true) {
               sweetAlert("Great", "You successfully create a new Vacant!", "success");
             }else{
               sweetAlert("Oops...", "Unable to create a new Vacant!", "error");
@@ -49,7 +49,13 @@ define([], function( ){
           });
       };
 
-      
-
+      $scope.values= function (index) {
+        $scope.vacantUp.idVacant = $scope.vacantData[index][0];
+        $scope.vacantUp.name = $scope.vacantData[index][1];
+        $scope.vacantUp.startdate = $scope.vacantData[index][2];
+        $scope.vacantUp.enddate = $scope.vacantData[index][3];
+        $scope.vacantUp.salary = $scope.vacantData[index][4];
+        $scope.vacantUp.des = $scope.vacantData[index][5];
+      };
   }
 });

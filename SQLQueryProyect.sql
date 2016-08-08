@@ -430,85 +430,11 @@ INSERT INTO Nomina VALUES
 INSERT INTO Nomina VALUES
 (4,'2016/06/2',1,2,3,4,5,6,7,NULL,9,NULL,1,2,3,5,4,NULL);
 
-/*
-
-CREATE PROCEDURE ps_ponertotal
-@id_nomina int,
-@total int
-as
-UPDATE Nomina set total=@total where id_nomina=@id_nomina;
 
 
-CREATE PROCEDURE ps_obtenersalario
-@id_empleado int
-as
-SELECT sueldo from Categorias as cat join Departamentos as dep on cat.id_categoria=dep.categoria_id
-join Puestos as pu on dep.id_departamento=pu.departamento_id join Contratos as con on pu.id_puesto=con.puesto_id
-join Empleados as em on em.contrato_id=con.id_contrato where id_empleado=@id_empleado;
 
-/************************************************ ****************************************************/
-/*
-CREATE FUNCTION ft_ejemplo
-begin
-	@id_empleado int,
-return @salario
-as
-	@suelo
-	@deducion1
-	@retencion
+--------------  STORE PROCEDURES!----------------------------
 
-	Select @sueldo = sueldo from Categoia as ca join puesto as pu
-
-	select @deducion1 = porcen taje from
-
-	@retencion = @sueldo *  @deducion1
-	@salario = @sueldo - @retencion
-
-@return @salario
-
-set total = @salario from Nomina
-*/
-/*
-CREATE PROCEDURE CVacSRH as
-SELECT id_folioV as 'folioVacante',nombre,fecha_inicio as 'fechaInicio',fecha_termino as 'fechaTermino',Salario as 'salario',Descripcion as 'descripcion' FROM Vacantes;
-EXEC CVacSRH*/
-*/
-
-
--------------  PROCEDIMIENTO PARA CONSULTA VACANTES
-CREATE PROCEDURE CVacSRH as
-SELECT id_folioV as 'folioVacante',nombre,fecha_inicio as 'fechaInicio',fecha_termino as 'fechaTermino',Salario as 'salario',Descripcion as 'descripcion' FROM Vacantes;
-EXEC CVacSRH
-
------------------ PROCEDIMIENTO PARA INSERTAR VACANTE
-CREATE PROCEDURE IVacSRH
-@nombre varchar(80),
-@fecha_inicio DATE,
-@fecha_termino DATE,
-@Salario decimal(8,2),
-@Descripcion varchar(200)
-as
-INSERT INTO Vacantes(nombre,fecha_inicio,fecha_termino,Salario,Descripcion) VALUES (@nombre,@fecha_inicio,@fecha_termino,@Salario,@Descripcion);
-
-EXEC IVacSRH 'lololo','2016/06/13','2017/12/06',1800.00,
-'Coordinacion del marketing de la empresa para su buena presentacion ante la sociedad
-asi mismo como el buen conocimiento ante la misma'
-
-------------- PROCEDIMIENTO PARA ACTUALIZAR VACANTES
-CREATE PROCEDURE EVacSRH
-@id_folioV int,
-@nombre varchar(80),
-@fecha_inicio DATE,
-@fecha_termino DATE,
-@Salario decimal(8,2),
-@Descripcion varchar(200)
-as
-UPDATE Vacantes SET nombre=@nombre,fecha_inicio=@fecha_inicio,fecha_termino=@fecha_termino,Salario=@Salario,Descripcion=@Descripcion
-WHERE id_folioV=@id_folioV;
-
-EXEC EVacSRH 1,'Contador Administrativo','2010/06/06','2010/12/06',10000.00,
-'Analizar los ingresos y costos de cada actividad, la cantidad de recursos utilizados,
-asi como la cantidad de trabajo o depreciacion de la maquinaria, equipos o edificios'
 
 
 ------------------ PROCEDIMIENTO PARA ELIMINAR VACANTE
@@ -516,8 +442,10 @@ CREATE PROCEDURE DVacSRH
 @id_folioV int
 as
 DELETE Vacantes WHERE id_folioV=@id_folioV;
+
 EXEC DVacSRH 16
 
+set dateformat 'ymd';
 
 ----------------- PROCEDIMIENTO CONSULTA VACANTES, ONY ID AND NAME
 
@@ -525,12 +453,20 @@ CREATE PROCEDURE ComboVacSRH as
 SELECT id_folioV as 'folioVacante', nombre FROM Vacantes;
 
 EXEC ComboVacSRH
+
+
+---------------- PROCEDIMIENTO CONSULTA ESTADOS
+CREATE PROCEDURE ComboEsSRH as
+SELECT id_estado as 'id_estado', estado FROM Estados;
+
+EXEC ComboEsSRH;
 ------------------ PROCEDIMIENTO CONSULTA CANDIDATOS
 
 CREATE PROCEDURE CCanSRH as
 SELECT c.id_folioC,c.nombre+' '+c.ape_p+' '+c.ape_m as 'Nombre',c.telefono,c.email ,v.nombre as 'Vacante_Solicitada',e.estado as Estado FROM Candidatos as c
 join Vacantes as v ON c.folioV_id=v.id_folioV
 join Estados as e ON c.estado_id=e.id_estado;
+
 EXEC CCanSRH
 
 ------------------ PROCEDIMIENTO INSERTAR CANDIDATO
@@ -558,12 +494,11 @@ CREATE PROCEDURE DCanSRH
 @ape_m varchar(100),
 @telefono varchar(10),
 @email varchar(100),
-@folioV_id int,
 @estado_id int
 as
-UPDATE Candidatos SET nombre=@nombre,ape_p=@ape_p,ape_m=@ape_m,telefono=@telefono,email=@email,folioV_id=@folioV_id,estado_id=@estado_id WHERE id_folioC=@id_folioC;
+UPDATE Candidatos SET nombre=@nombre,ape_p=@ape_p,ape_m=@ape_m,telefono=@telefono,email=@email,estado_id=@estado_id WHERE id_folioC=@id_folioC;
 
-EXEC DCanSRH 5,'Alejandro','Gonzales','Torres','4421747570','alex.goz@hotmail.com',15,1
+EXEC DCanSRH 5,'Alejandro','Gonzales','Torres','4421747570','alex.goz@hotmail.com',1
 
 ------------------ PROCEDIMIENTO CONTRATADO EL CANDIDATO
 
@@ -584,6 +519,7 @@ CREATE PROCEDURE CEmpSRH as
 SELECT ca.nombre+' '+ca.ape_p+' '+ca.ape_m as 'Nombre',ca.telefono,ca.email,e.cuenta,e.fechaalta,e.contrato_id FROM Empleados as e
 JOIN Contratos as c ON e.contrato_id=c.id_contrato
 JOIN Candidatos as ca ON c.folioC_id=ca.folioV_id WHERE e.contrato_id=c.id_contrato
+
 EXEC CEmpSRH
 
 ------------------ PROCEDIMIENTO ELIMINAR EMPLEADOS
@@ -591,6 +527,7 @@ CREATE PROCEDURE DEnpSRH
 @id_empleado INT
 as
 DELETE Empleados WHERE id_empleado=@id_empleado;
+
 EXEC DEnpSRH 8
 
 
@@ -605,3 +542,37 @@ UPDATE Empleados SET cuenta=@cuenta,fechaalta=@fechaalta,contrato_id=@contrato_i
 WHERE id_empleado=@id_empleado;
 
 EXEC AEmpSRH 2,'756774575','2016/06/06',1
+
+------------ PROCEDIMIENTO NOMINAS 1
+CREATE PROCEDURE ps_ponertotal1
+@id_empleado int
+as
+UPDATE nomina set total = sueldo from Categorias as cat join Departamentos as dep on cat.id_categoria=dep.categoria_id
+join Puestos as pu on dep.id_departamento=pu.departamento_id join Contratos as con on pu.id_puesto=con.puesto_id
+join Empleados as em on em.contrato_id=con.id_contrato where id_empleado=@id_empleado and empleado_id=@id_empleado;
+
+
+-------------------- NOMINAS 2
+
+create procedure p
+as
+DECLARE @intFlag INT
+SET @intFlag = 1
+WHILE (@intFlag <=(SELECT MAX(id_empleado)  FROM Empleados) )
+BEGIN
+EXEC ps_ponertotal1 @intFlag ;
+SET @intFlag = @intFlag + 1
+END
+
+exec p;
+
+--------------- VIEW NOMINEE
+
+
+CREATE VIEW SENomSRH as
+SELECT nom.id_nomina, (SELECT Convert(varchar(10), nom.fecha,120)) as'Fecha', ca.nombre+' '+ca.ape_p+' '+ca.ape_m as 'Nombre', nom.total FROM Nomina as nom
+JOIN Empleados as e ON e.id_empleado=nom.empleado_id
+JOIN Contratos as c ON e.contrato_id=c.id_contrato
+JOIN Candidatos as ca ON c.folioC_id=ca.folioV_id;
+
+SELECT * FROM SENomSRH;

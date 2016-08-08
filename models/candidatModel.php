@@ -14,6 +14,20 @@ class candidat_model{
       return $rs;
     }
 
+    public function viewComboVacant(){
+      global $conn, $SELECT_COMBOVACANT;
+      $stmt = $conn->Prepare($SELECT_COMBOVACANT);
+      $rs = $conn->GetArray($SELECT_COMBOVACANT);
+      return $rs;
+    }
+
+    public function viewComboState(){
+      global $conn, $SELECT_COMBOSTATE;
+      $stmt = $conn->Prepare($SELECT_COMBOSTATE);
+      $rs = $conn->GetArray($SELECT_COMBOSTATE);
+      return $rs;
+    }
+
     public function newCandidat($objectCandidat){
       global $conn,$INSERT_CANDIDAT;
       $conn->StartTrans();
@@ -40,10 +54,10 @@ class candidat_model{
       echo $message;
     }
 
-    public function deleteCandidat($idCandidat){
-      global $conn,$DELETE_CANDIDAT;
+    public function promoveCandidat($idCandidat){
+      global $conn,$PROMOVEE_CANDIDAT;
       $conn->StartTrans();
-      $conn->Execute($DELETE_CANDIDAT,$idCandidat); //DELETE A CANDIDAT
+      $conn->Execute($PROMOVEE_CANDIDAT,$idCandidat); //PROMOVEE A CANDIDAT
       if($conn->HasFailedTrans()){
           $message = false;
       }else{

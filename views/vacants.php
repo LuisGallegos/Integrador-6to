@@ -84,9 +84,9 @@
             <label for="name">Name:</label>
             <input type="text" class="form-control" ng-model="vacantUp.name"  ng-value=vacantUp.name />
             <label for="fechaini">Begin Date:</label>
-            <input type="date" class="form-control" ng-model="vacantUp.startdate"  />
+            <input type="date" class="form-control" ng-model="vacantUp.startdate"   />
             <label for="fechafin">End Date:</label>
-            <input type="date" class="form-control" ng-model="vacantUp.enddate"  />
+            <input type="date" class="form-control" ng-model="vacantUp.enddate"   />
             <label for="sal">Salary:</label>
             <input type="text" class="form-control" ng-model="vacantUp.salary" placeholder="$$$$" maxlength="6"  ng-value=vacantUp.salary />
             <label for="desc">Description:</label>
