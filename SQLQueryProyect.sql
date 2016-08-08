@@ -1,10 +1,7 @@
-
-use master
-DROP DATABASE SRH;
-
-create database SRH
-use SRH
-
+create database SRH;
+go
+use SRH:
+go
 CREATE TABLE users (
   username varchar(9)  NOT NULL,
   pass varchar(128) NOT NULL,
@@ -23,9 +20,9 @@ CREATE TABLE attempts(
 insert into users values
 
 
-('212561549','123','robertoputo@ge.com',1),
+('212561549','123','luisalberto.gallegos@ge.com',1),
 
-('212561548','123','robertoputo@ge.com',1);
+('212561548','123','roberto.moya@ge.com',1);
 
 insert into attempts values('212561549',0),('212561548',0);
 
@@ -434,7 +431,7 @@ INSERT INTO Nomina VALUES
 INSERT INTO Nomina VALUES
 (4,'2016/06/2',1,2,3,4,5,6,7,NULL,9,NULL,1,2,3,5,4,NULL);
 
-
+/*
 
 CREATE PROCEDURE ps_ponertotal
 @id_nomina int,
@@ -451,6 +448,7 @@ join Puestos as pu on dep.id_departamento=pu.departamento_id join Contratos as c
 join Empleados as em on em.contrato_id=con.id_contrato where id_empleado=@id_empleado;
 
 /************************************************ ****************************************************/
+/*
 CREATE FUNCTION ft_ejemplo
 begin
 	@id_empleado int,
@@ -470,3 +468,8 @@ as
 @return @salario
 
 set total = @salario from Nomina
+*/
+/*
+CREATE PROCEDURE CVacSRH as
+SELECT id_folioV as 'folioVacante',nombre,fecha_inicio as 'fechaInicio',fecha_termino as 'fechaTermino',Salario as 'salario',Descripcion as 'descripcion' FROM Vacantes;
+EXEC CVacSRH*/

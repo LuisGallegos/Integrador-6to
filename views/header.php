@@ -90,7 +90,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-            <a ui-sref-active="active" ui-sref="home"><i class="fa fa-dashboard fa-fw"></i> <span>Vacantes</span></a>
+            <a ui-sref-active="active" ui-sref="vacants" ><i class="fa fa-dashboard fa-fw"></i> <span>Vacantes</span></a>
         </li>
         <li>
             <a ui-sref-active="active" ui-sref="nomination"><i class="fa fa-table fa-fw"></i><span> Departamentos</span></a>

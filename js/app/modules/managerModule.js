@@ -9,7 +9,11 @@ function(loginController,vacantController,vacantFactory){
       $stateProvider
               .state('home', {
                 url: '/home',
-                templateUrl: 'homes.php',
+                templateUrl: 'homes.php'
+                })
+              .state('vacants', {
+                url: '/vacants',
+                templateUrl: 'vacants.php',
                 controller: 'vacantController',
                 })
               .state('Perceptions', {

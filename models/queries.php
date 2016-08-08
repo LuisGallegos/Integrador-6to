@@ -2,7 +2,7 @@
 
 //-------------------------------------------------------------------------------LOGIN QUERIES-----------------------------------------------------------------------------------------------
 
-$SELECT_VACANTES="SELECT * FROM Vacantes;";
+
 
 //:::::SELECT
 $SELECT_USERS_DATA = "SELECT users.username, users.pass, users.stat, attempts.times FROM users INNER JOIN attempts ON users.username = attempts.username WHERE users.username= ?;";
@@ -19,6 +19,17 @@ $INSERT_ATTEMPTS= "Insert into attempts(username) values (?);";//Insert user on 
 
 
 //-------------------------------------------------------------------------------LOGIN QUERIES-----------------------------------------------------------------------------------------------
+
+
+
+//SELECT
+
+$SELECT_VACANTES="EXEC CVacSRH;";
+
+//UPDATE
+
+$UPDATE_VACANT="EXEC EVacSRH ?,?,?,?,?,?;";
+
 
 
 ?>
